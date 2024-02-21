@@ -4,11 +4,11 @@ start: expr
 
 expr: operation
 
-operation:  [extract | generate | locate] props? "from" filename props?
+operation:  [extract | generate | locate] "from" filename
 
-extract: "extract" action
-generate: "generate" action
-locate: "locate" action
+extract: "extract" action props? 
+generate: "generate" action props? 
+locate: "locate" action props? 
 
 action: "'" ALPHABET "'"
 
@@ -23,4 +23,5 @@ ALPHANUMERIC: /[a-zA-Z0-9_\-.]+/
 
 %import common.WS
 %ignore WS
+%ignore /\s+/
 """
